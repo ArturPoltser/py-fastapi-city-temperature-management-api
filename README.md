@@ -21,16 +21,18 @@ venv\Scripts\activate  #for MacOS/Linux use: source vevn/bin/activate
 ```shell
 pip install -r requirements.txt
 ```
-
+5. You should register on weatherapi.com and get your API_KEY
+6. Copy .env.sample and create .env file. After that you need to put your own API_KEY instead of default one.
 ## Running the Server
 
-To run the server, navigate to the project directory and execute the following command:
+To run the server execute the following command:
 
 ```shell
 uvicorn main:app --reload
 ```
 
 ## Endpoints
+I recommend you to interact with API from ```/docs``` endpoint.
 
 ### City App
 * GET /cities: Get a list of all cities.
@@ -40,8 +42,8 @@ uvicorn main:app --reload
 * DELETE /cities/{city_id}: Delete a specific city.
 
 ### Temperature App
-* GET /temperatures: Get a list of all temperature records.
 * POST /temperatures/update: Fetch and create/update temperature data for all cities.
+* GET /temperatures: Get a list of all temperature records.
 * GET /temperatures/{city_id}: Get temperature records for a specific city.
 
 
