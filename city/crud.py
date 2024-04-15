@@ -58,6 +58,14 @@ async def update_city(
         city_id: int,
         city_data: schemas.CityUpdate
 ) -> models.City:
+    existed_city = await get_city_by_name(db, city_data.dict()["name"])
+
+    if existed_city and existed_city.id != city_id:
+        raise HTTPException(
+            status_code=400,
+            detail=f"City '{existed_city.name}' already exists"
+        )
+
     db_city = await get_city_by_id_or_404(db, city_id)
 
     for attr, value in city_data.dict().items():
