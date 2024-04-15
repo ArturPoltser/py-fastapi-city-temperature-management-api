@@ -23,6 +23,14 @@ pip install -r requirements.txt
 ```
 5. You should register on weatherapi.com and get your API_KEY
 6. Copy .env.sample and create .env file. After that you need to put your own API_KEY instead of default one.
+
+## Adding Migrations
+
+This project uses Alembic for managing database migrations. Execute the following commands to create and run migration:
+```shell
+alembic revision --autogenerate -m "initial_migrations"
+alembic upgrade head
+```
 ## Running the Server
 
 To run the server execute the following command:
